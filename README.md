@@ -21,7 +21,7 @@ endpoint: <datarobot-api-endpoint>
 _EOF_
 
 # get all projects
-$ drctrl get_pojects
+$ drctrl get_projects
 
 # get project detail
 $ drctrl get_project <project_id>
