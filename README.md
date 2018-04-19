@@ -1,10 +1,10 @@
-## drctrl
+# drctrl
 
-drctrl is a tool for automatically configuration for Datarobot. drctrl can manage features provided datarobot like building project, training, freezing, prediction.
+drctrl is a tool for automatically configuration for DataRobot. drctrl can manage features provided datarobot like building project, training, freezing, prediction.
 
 python support:	3.6.x and greater
 
-## 1. Insallation
+## 1. Installation
 
 ```bash
 $ pip install drctrl
@@ -21,7 +21,7 @@ endpoint: <datarobot-api-endpoint>
 _EOF_
 
 # get all projects
-$ drctrl get_pojects
+$ drctrl get_projects
 
 # get project detail
 $ drctrl get_project <project_id>
@@ -35,7 +35,7 @@ $ drctrl get_project_setting <project_id>
 Download Boston Housing dataset in UCI [url](https://archive.ics.uci.edu/ml/machine-learning-databases/housing/Index).
 
 ```bash
-# downloading datase into `./data/raw/`
+# downloading dataset into `./data/raw/`
 $ drctrl create_dataset
 ```
 
@@ -85,7 +85,7 @@ predict:
        filename: 'prediction.csv'
 ```
 
-Run Drctrl with configuration
+Run drctrl with configuration
 
 ```bash
 $ drctrl apply configure.yml
