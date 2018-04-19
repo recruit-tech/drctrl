@@ -35,7 +35,7 @@ $ drctrl get_project_setting <project_id>
 Download Boston Housing dataset in UCI [url](https://archive.ics.uci.edu/ml/machine-learning-databases/housing/Index).
 
 ```bash
-# downloading datase into `./data/raw/`
+# downloading dataset into `./data/raw/`
 $ drctrl create_dataset
 ```
 
