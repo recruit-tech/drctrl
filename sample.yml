@@ -1,0 +1,43 @@
+environment:
+   project_id: # if null, build a new project
+   project_name: 'sample_project'
+   target_feature: target
+   metric: 'RMSE' 
+   cv_method: 'random'
+   validation_type: 'CV' 
+   validation_params:
+      holdout_pct: 20
+      #validation_pct: 10
+      reps: 3    # number of cross validation folds to use
+      seed: 2017 # a seed to use for randomization
+   dataset:
+       type: file
+       path: './data/raw'
+       filename: 'boston.csv'
+   autopilot: 'manual' # fullauto, quick, manual
+   convert_features:
+      - {name: RAD, rename_to: RAD_categoricalInt, variable_type: categoricalInt}
+
+fit:
+   model_id:  # if None, run autopilot
+   autopilot: 'fullauto'
+   featurelist_name: 'without_feature'  # if already exist, current time string will be used
+   source_featurelist: 'Raw Features'
+   except_features:
+      - 'NOX'
+      - 'NOXX'
+      - 'NOXXX'
+      
+predict:
+   model_id:  # if None, a model will be automatically selected 
+   input:
+       type: 'file'
+       path: './data/raw/'
+       filename: 'boston.csv'
+   reasoncode: True
+   merge_origin: True 
+   feature_impact: True
+   output:
+       type: 'file'
+       path: './'
+       filename: 'prediction.csv'

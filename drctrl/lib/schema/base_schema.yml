@@ -1,0 +1,140 @@
+type: map
+matching-rule: all
+mapping:
+  regex;(.*):
+    type: any
+
+  environment:
+    type: map
+    required: true
+    mapping:
+      project_id:
+        type: any
+        required: false
+      project_name:
+        type: str
+        required: false
+      target_feature:
+        type: str
+        required: true
+      metric:
+        type: str
+        required: true
+      validation_params:
+        type: map
+        required: true
+        allowempty: true
+      cv_method:
+        required: true
+      validation_type:
+        required: true
+      dataset:
+        type: map
+        required: true
+        allowempty: true
+        mapping:
+          type:
+            type: str
+            required: true
+      autopilot:
+        required: true
+      convert_features:
+        type: seq
+        sequence:
+          - type: map
+            allowempty: true
+        required: false
+        allowempty: true
+
+  fit:
+    type: map
+    required: false
+    mapping:
+      model_id:
+        type: any
+        required: false
+      sample_pct:
+        type: any
+        required: false
+      autopilot:
+        type: str
+        required: false
+      featurelist_name:
+        type: str
+        required: false
+      source_featurelist:
+        type: str
+        required: true
+      except_features:
+        type: seq
+        allowempty: true
+        sequence:
+          - type: str
+      wait_for_completion:
+        type: bool
+        required: false
+
+  predict:
+    type: map
+    required: false
+    mapping:
+      model_id:
+        required: false
+      del_dataset:
+        type: bool
+        required: false
+      reasoncode:
+        type: bool
+        required: false
+      merge_origin:
+        type: bool
+        required: false
+      feature_impact:
+        type: bool
+        required: false
+      max_codes:
+        type: int
+        required: false
+      input:
+        type: map
+        allowempty: true
+        required: true
+        mapping:
+          type:
+            type: str
+            required: true
+      output:
+        type: map
+        allowempty: true
+        required: true
+        mapping:
+          type:
+            type: str
+            required: true
+
+  frozen:
+    type: map
+    required: false
+    mapping:
+      model_id:
+        type: any
+        required: false
+      sample_pct:
+        type: float
+        required: false
+      training_row_count:
+        type: int
+        required: false
+      training_duration:
+        type: int
+        required: false
+      training_row_count:
+        type: int
+        required: false
+      start_date:
+        type: str
+        required: false
+      end_date:
+        type: str
+        required: false
+
