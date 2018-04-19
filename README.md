@@ -7,9 +7,7 @@ python support:	3.6.x and greater
 ## 1. Insallation
 
 ```bash
-$ git clone https://github.com/e-mon/drctrl; cd /path/to/drctrl
-$ pip install -r requirements.txt
-$ pip install -e ./
+$ pip install drctrl
 ```
 
 ## 2. Get started
