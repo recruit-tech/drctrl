@@ -4,7 +4,7 @@ drctrl is a tool for automatically configuration for DataRobot. drctrl can manag
 
 python support:	3.6.x and greater
 
-## 1. Insallation
+## 1. Installation
 
 ```bash
 $ pip install drctrl
