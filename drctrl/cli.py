@@ -426,9 +426,9 @@ def create_dataset(path):
 @contextlib.contextmanager
 def section(name):
     start = time.time()
-    click.echo("start   '{}'".format(name))
+    click.echo("start    '{}'".format(name))
     yield
-    click.echo("finised '{}'".format(name))
+    click.echo("finished '{}'".format(name))
     click.echo(f"...elapsed time: {time.time()-start: 0.3f} s\n")
 
 def main():
