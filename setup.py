@@ -3,12 +3,12 @@
 
 from setuptools import setup, find_packages
 
-with open('requirements.txt') as fp:
-    install_requires = fp.read()
+with open('requirements.txt', 'r') as fp:
+    install_requires = fp.read().splitlines()
 
 setup(
     name='drctrl',
-    version='0.0.9',
+    version='0.1.0',
     description="Automatically configuration tool for DataRobot.",
     author='e-mon',
     author_email='emon18@icloud.com',

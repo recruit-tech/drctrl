@@ -1,9 +1,7 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
-
 
 [dev-packages]
 black = "==18.6b1"
@@ -11,9 +9,7 @@ twine = "*"
 yapf = "*"
 ipython = "*"
 
-
 [packages]
-
 datarobot = "<2.7,>=2.6"
 click = "==6.7"
 pandas = ">=0.23.0"
@@ -24,11 +20,10 @@ sklearn = "*"
 scipy = "*"
 "jinja2" = "*"
 sqlalchemy = "*"
-smart-open = "*"
 pyaml = "*"
 pykwalify = "*"
 update = "*"
-
+"boto3" = "*"
 
 [requires]
 python_version = "3.6"

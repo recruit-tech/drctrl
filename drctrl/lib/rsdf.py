@@ -4,10 +4,10 @@ from sqlalchemy.types import VARCHAR
 from pandas.io.sql import SQLTable, pandasSQL_builder
 import tempfile
 import numpy as np
+import boto3
 import json
 import pandas as pd
 from sqlalchemy import text
-from smart_open import smart_open
 from datetime import datetime
 import csv
 
@@ -16,12 +16,6 @@ import csv
 def get_buffer_data_url(s3_access_key, s3_secret_key, s3_bucket, **kwargs):
     return 's3://{s3_access_key}:{s3_secret_key}@{s3_bucket}'.format(**locals())
 
-
-def open_s3(path, mode='rb', s3_access_key=None, s3_secret_key=None, s3_bucket=None, **kwargs):
-    base_url = get_buffer_data_url(**locals())
-
-    s3_url = '{base_url}/{path}'.format(**locals())
-    return smart_open(s3_url, mode, **kwargs)
 
 def get_dataframe_column_object_types(dataframe):
     df_grouped_types = dataframe.columns.to_series().groupby(dataframe.dtypes).groups
@@ -144,9 +138,8 @@ class rsdf:
         dataframe.to_csv(tfile.name, header=False, index=False, sep=',',
                 compression='bz2', na_rep='', quoting=csv.QUOTE_NONNUMERIC)
 
-        with smart_open(tfile) as tout:
-            with open_s3(s3_url, 'wb', aws_access_key_id, aws_secret_access_key, s3_bucket) as fout:
-                fout.write(tout.read())
+        s3client = boto3.client('s3')
+        s3client.upload_fileobj(tfile, s3_bucket, s3_url)
 
         if columns is None:
             columns = ''
